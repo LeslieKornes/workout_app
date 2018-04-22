@@ -45,6 +45,10 @@ guard :rspec, cmd: "bin/rspec" do
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
+  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
+  watch(rails.routes)          { "#{rspec.spec_dir}" }
+
   watch(rails.controllers) do |m|
     [
       rspec.spec.call("routing/#{m[1]}_routing"),
@@ -52,12 +56,6 @@ guard :rspec, cmd: "bin/rspec" do
       rspec.spec.call("acceptance/#{m[1]}")
     ]
   end
-
-  #I think this is where it goes
-  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
-  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
-  watch(rails.routes)          { "#{rspec.spec_dir}" }
-  #Might have to move above block
 
   # Rails config changes
   watch(rails.spec_helper)     { rspec.spec_dir }
