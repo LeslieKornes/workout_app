@@ -29,6 +29,15 @@
             <%= link_to "Sign up", new_user_registration_path %>
             <%= link_to "Sign in", new_user_session_path %>
           </li>
+
+          <% if user_signed_in? %>
+            <div class="navbar-right">
+              <div class="navbar-text">
+                Signed in as <%= "#{current_user.email}" %>
+              </div>
+            </div>
+          <% end %>
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
