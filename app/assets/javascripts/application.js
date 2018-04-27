@@ -14,4 +14,5 @@
 //= require jquery
 //= require jquery-ui/datepicker
 //= require bootstrap-sprockets
+//= require d3
 //= require_tree .
