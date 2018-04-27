@@ -18,7 +18,7 @@ RSpec.feature "Editing exercise" do
     click_link "My Lounge"
 
     path = "/users/#{@owner.id}/exercises/#{@owner_exercise.id}/edit"
-    link = "a[href=\'#{path}\]"
+    link = "a[href=\'#{path}'\]"
     find(link).click
 
     fill_in "Duration", with: 45
