@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "dashboards#home"
+  root to: "dashboards#index"
 
   resources :users do
     resources :exercises
