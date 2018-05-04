@@ -10,5 +10,4 @@ RSpec.feature "Creating Homepage" do
     expect(page).to have_content("Workout Lounge!")
     expect(page).to have_content("Show off your workout")
   end
-
 end
