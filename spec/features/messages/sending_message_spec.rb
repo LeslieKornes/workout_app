@@ -31,5 +31,4 @@ RSpec.feature "Sending a message" do
       expect(page).to have_link(@henry.full_name)
     end
   end
-  
 end
